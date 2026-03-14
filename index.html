@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>bleood walk</title>
+</head>
+<body>
+	<style>
+	body{
+	margin:0;
+	}
+
+	.side-img{
+		position:fixed;
+		top:0;
+		bottom:0;
+		width:400px;
+		background-size:cover;
+		background-position:center;
+		z-index:-1;
+	}
+
+	.left{
+		left:0;
+		background-image:url("img/legs.png");
+		background-position: -50px center;
+	}
+
+	.right{
+		right:0;
+		background-image:url("img/legs.png");
+		background-position: -50px center;
+	}
+
+	@media (max-width:768px){
+	.side-img{
+		position:relative;
+		width:100%;
+		height:120px;
+	}
+	.left,.right{
+		left:0;
+		right:0;
+	}
+	}
+	</style>
+
+	<div style="min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 2rem; font-family: 'Courier New', monospace;">
+		<div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 2rem 2.5rem; max-width: 480px; width: 100%;">
+			<p style="font-size: 11px; color: var(--color-text-tertiary); margin: 0 0 1.5rem; letter-spacing: 0.1em; text-transform: uppercase;">artist profile</p>
+			<div style="display: flex; flex-direction: column; gap: 16px;">
+			<div>
+				<p style="font-size: 11px; color: var(--color-text-secondary); margin: 0 0 4px;">artist</p>
+				<p style="font-size: 18px; font-weight: 500; color: var(--color-text-primary); margin: 0;">emwellburnpeanut</p>
+			</div>
+			<div style="border-top: 0.5px solid var(--color-border-tertiary);"></div>
+			<div>
+				<p style="font-size: 11px; color: var(--color-text-secondary); margin: 0 0 4px;">name</p>
+				<p style="font-size: 18px; font-weight: 500; color: var(--color-text-primary); margin: 0;">epstein didy</p>
+			</div>
+			<div style="border-top: 0.5px solid var(--color-border-tertiary);"></div>
+			<div>
+				<p style="font-size: 11px; color: var(--color-text-secondary); margin: 0 0 4px;">email</p>
+				<p style="font-size: 15px; font-weight: 400; color: var(--color-text-primary); margin: 0; word-break: break-all;">popbob2builders2tools@gmail.com</p>
+			</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="side-img left"></div>
+	<div class="side-img right"></div>
+
+	<script>
+document.addEventListener("DOMContentLoaded", () => {
+const images = [
+	"img/content.png",
+	"img/drool.png",
+	"img/kari cenat.jpeg",
+	"img/lacy.png",
+	"img/legs.png",
+	"img/peak life.png",
+	"img/top 1 chad btw.png"
+];
+
+const cols = Math.ceil(Math.sqrt(images.length));
+const rows = Math.ceil(images.length / cols);
+
+const overlay = document.createElement("div");
+overlay.style.position = "fixed";
+overlay.style.top = 0;
+overlay.style.left = 0;
+overlay.style.width = "100vw";
+overlay.style.height = "100vh";
+overlay.style.display = "grid";
+overlay.style.gridTemplateColumns = `repeat(${cols},1fr)`;
+overlay.style.gridTemplateRows = `repeat(${rows},1fr)`;
+overlay.style.zIndex = 9999;
+
+images.forEach(src => {
+	const btn = document.createElement("button");
+	btn.style.background = "transparent";
+	btn.style.border = "none";
+	btn.style.cursor = "pointer";
+
+	btn.onclick = () => window.open(src, "_blank");
+
+	overlay.appendChild(btn);
+});
+
+document.body.appendChild(overlay);
+
+});
+	</script>
+</body>
+</html>
